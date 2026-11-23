@@ -1,0 +1,141 @@
+/* =====================================================
+   PERSON 1 - Colours, global look, buttons, navbar,
+              logo, hero banner and footer
+   ===================================================== */
+
+/* ---------- Colours used everywhere (change them here) ---------- */
+:root {
+  --bg: #fbf5ff;
+  --ink: #2a2140;
+  --muted: #6b6384;
+  --line: #eadff5;
+  --violet: #7c3aed;
+  --pink: #ec4899;
+  --amber: #f59e0b;
+  --teal: #0ea5a4;
+  --green: #16a34a;
+  --red: #e11d48;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.hidden { display: none !important; }
+
+.page { padding: 32px 48px; max-width: 1200px; margin: auto; min-height: 70vh; }
+
+.section-title {
+  font-family: Georgia, serif;
+  font-size: 26px;
+  margin: 48px 0 18px;
+}
+
+/* ---------- Buttons (used on every page) ---------- */
+.btn {
+  background: linear-gradient(135deg, var(--violet), var(--pink));
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 24px;
+  transition: transform 0.15s, opacity 0.15s;
+}
+.btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.btn.full { width: 100%; }
+.btn.small { padding: 6px 14px; font-size: 13px; }
+.btn.green { background: var(--green); }
+.btn.red { background: var(--red); }
+.btn.orange { background: var(--amber); }
+.btn.grey { background: #8b86a3; }
+.btn.light { background: #fff; color: var(--violet); font-weight: bold; }
+
+/* ---------- Navbar and logo ---------- */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 48px;
+  background: #fff;
+  border-bottom: 4px solid;
+  border-image: linear-gradient(90deg, var(--violet), var(--pink), var(--amber)) 1;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: Georgia, serif;
+  font-size: 24px;
+}
+.logo img { width: 42px; height: 42px; }
+/* "Flow" is written in a gradient colour */
+.logo b {
+  background: linear-gradient(90deg, var(--violet), var(--pink));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+nav a {
+  margin-left: 28px;
+  text-decoration: none;
+  color: var(--ink);
+  font-size: 14px;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+}
+nav a:hover { border-bottom-color: var(--pink); }
+
+/* ---------- Hero banner (top of the home page) ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  padding: 50px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--violet), var(--pink) 65%, var(--amber));
+  border-radius: 22px;
+}
+.hero .tag { font-size: 12px; letter-spacing: 3px; opacity: 0.85; margin-bottom: 10px; }
+.hero h1 { font-family: Georgia, serif; font-size: 44px; line-height: 1.15; margin-bottom: 14px; }
+.hero p { margin-bottom: 24px; }
+
+/* three sketches shown side by side */
+.hero-art { display: flex; justify-content: center; }
+.hero-art img {
+  width: 33%;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  margin: 0 -8px;
+}
+.hero-art img:nth-child(1) { transform: rotate(-6deg); background: #ffe4ef; }
+.hero-art img:nth-child(2) { transform: translateY(-14px); z-index: 1; background: #e0f7f3; }
+.hero-art img:nth-child(3) { transform: rotate(6deg); background: #fff1d6; }
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 26px;
+  font-size: 13px;
+  color: #fff;
+  margin-top: 40px;
+  background: linear-gradient(90deg, var(--violet), var(--pink));
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 800px) {
+  .navbar, .page { padding-left: 20px; padding-right: 20px; }
+  .hero { grid-template-columns: 1fr; padding: 28px; }
+  .hero h1 { font-size: 32px; }
+}

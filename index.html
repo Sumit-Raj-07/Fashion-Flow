@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fashion Flow - Design Review Workflow</title>
+  <link rel="icon" href="logo.svg">
+
+  <!-- Each person has their own CSS file and JS file -->
+  <link rel="stylesheet" href="css/person1.css">
+  <link rel="stylesheet" href="css/person2.css">
+  <link rel="stylesheet" href="css/person3.css">
+</head>
+<body>
+
+  <!-- ================= PERSON 1: Navigation bar ================= -->
+  <header class="navbar">
+    <div class="logo" onclick="showHome()">
+      <img src="logo.svg" alt="Fashion Flow logo">
+      <span>Fashion <b>Flow</b></span>
+    </div>
+    <nav>
+      <a href="#" onclick="showHome()">Home</a>
+      <a href="#" id="navLogin" onclick="showPage('login')">Login</a>
+      <a href="#" id="navLogout" class="hidden" onclick="logout()">Logout</a>
+    </nav>
+  </header>
+
+  <!-- ================= Home page ================= -->
+  <section id="home" class="page">
+
+    <!-- PERSON 1: hero banner -->
+    <div class="hero">
+      <div class="hero-text">
+        <p class="tag">DESIGN REVIEW WORKFLOW</p>
+        <h1>From first sketch to final approval</h1>
+        <p>Designers, clients and production managers in one place. Every sketch, comment and version is saved, so nothing gets lost.</p>
+        <button class="btn light" onclick="showPage('login')">Get Started</button>
+      </div>
+      <div class="hero-art">
+        <img src="sketches/dress.svg" alt="Dress sketch">
+        <img src="sketches/jacket.svg" alt="Jacket sketch">
+        <img src="sketches/shirt.svg" alt="Shirt sketch">
+      </div>
+    </div>
+
+    <!-- PERSON 1: sample sketches (cards are drawn by person1.js) -->
+    <h2 class="section-title">Latest Sketches</h2>
+    <div class="grid" id="homeGallery"></div>
+
+    <!-- PERSON 2: "How it works" boxes -->
+    <h2 class="section-title">How it works</h2>
+    <div class="steps">
+      <div class="step"><span>1</span><h3>Designer</h3><p>Adds a sketch with fabric and colour, then sends it to the client.</p></div>
+      <div class="step"><span>2</span><h3>Client</h3><p>Asks for changes or approves the design.</p></div>
+      <div class="step"><span>3</span><h3>Production Manager</h3><p>Accepts or rejects the approved design.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= PERSON 2: Login page ================= -->
+  <section id="login" class="page hidden">
+    <div class="login-box">
+      <h2>Welcome back</h2>
+      <input type="text" id="username" placeholder="Username">
+      <input type="password" id="password" placeholder="Password">
+      <button class="btn full" onclick="login()">Login</button>
+      <p id="loginError" class="error"></p>
+      <div class="demo">
+        <strong>Demo accounts</strong> (password 1234)<br>
+        designer &nbsp;|&nbsp; client &nbsp;|&nbsp; production
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= Dashboard (shared by all three users) ================= -->
+  <section id="dashboard" class="page hidden">
+
+    <!-- PERSON 3: welcome heading -->
+    <h2 id="welcome"></h2>
+
+    <!-- PERSON 2: form to add / revise a sketch (only the designer sees this) -->
+    <div id="designerForm" class="form-box hidden">
+      <h3 id="formTitle">Add New Sketch</h3>
+      <div class="form-row">
+        <input type="text" id="fTitle" placeholder="Design name">
+        <input type="text" id="fFabric" placeholder="Fabric (e.g. Silk)">
+      </div>
+      <label>Sketch image</label>
+      <input type="file" id="fImage" accept="image/*">
+      <label>Colour</label>
+      <input type="color" id="fColor" value="#cccccc">
+      <textarea id="fNotes" rows="2" placeholder="Notes about the design"></textarea>
+      <div class="actions">
+        <button class="btn grey" id="draftBtn" onclick="submitDesign(false)">Save as Draft</button>
+        <button class="btn" onclick="submitDesign(true)">Send to Client</button>
+        <button class="btn grey hidden" id="cancelBtn" onclick="cancelRevision()">Cancel</button>
+      </div>
+      <p id="formError" class="error"></p>
+    </div>
+
+    <!-- PERSON 3: all design cards are drawn here (stages, comments, history) -->
+    <div id="designList"></div>
+  </section>
+
+  <!-- PERSON 1: footer -->
+  <footer>Fashion Flow &middot; Fashion design review workflow &middot; Class project</footer>
+
+  <script src="js/person1.js"></script>
+  <script src="js/person2.js"></script>
+  <script src="js/person3.js"></script>
+</body>
+</html>

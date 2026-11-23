@@ -1,0 +1,128 @@
+/* =====================================================
+   PERSON 3 - Dashboard: stage headings, design cards,
+              status badges, comments and version history
+   ===================================================== */
+
+#welcome { font-family: Georgia, serif; font-size: 30px; }
+
+/* ---------- Stage headings (Draft / In Review / Approved) ---------- */
+.stage-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 40px 0 18px;
+  padding-left: 14px;
+  border-left: 6px solid #8b86a3;
+}
+.stage-head h2 { font-family: Georgia, serif; font-size: 24px; }
+.count {
+  background: #8b86a3;
+  color: #fff;
+  font-size: 13px;
+  border-radius: 12px;
+  padding: 1px 10px;
+}
+.stage-Draft { border-left-color: #8b86a3; }
+.stage-Review { border-left-color: var(--amber); }
+.stage-Review .count { background: var(--amber); }
+.stage-Approved { border-left-color: var(--green); }
+.stage-Approved .count { background: var(--green); }
+.empty { color: #9a93ad; font-style: italic; font-size: 14px; }
+
+/* ---------- Design card (medium size, same for all roles) ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 22px;
+}
+.card {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(124, 58, 237, 0.18);
+}
+.card img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: contain;
+  background: #ece4ff;
+}
+/* the picture area of each card gets a different pastel colour */
+.card:nth-child(5n+1) img { background: #ffe4ef; }
+.card:nth-child(5n+2) img { background: #e0f7f3; }
+.card:nth-child(5n+3) img { background: #ece4ff; }
+.card:nth-child(5n+4) img { background: #fff1d6; }
+.card:nth-child(5n+5) img { background: #def0ff; }
+
+.card-body { padding: 16px; }
+.card h3 { font-family: Georgia, serif; font-size: 19px; margin: 8px 0 4px; }
+.card h3 small { font-family: Arial, sans-serif; font-size: 12px; color: var(--muted); }
+.fabric { font-size: 14px; }
+.notes { font-size: 13px; color: var(--muted); margin-top: 4px; }
+.actions { display: flex; gap: 8px; flex-wrap: wrap; margin: 12px 0 4px; }
+
+.swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #aaa;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+/* ---------- Status badge (colour depends on the first word of the status) ---------- */
+.status {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  padding: 3px 12px;
+  border-radius: 12px;
+  color: #fff;
+}
+.s-draft { background: #8b86a3; }
+.s-pending { background: #6366f1; }
+.s-changes { background: var(--amber); }
+.s-approved { background: #2563eb; }
+.s-accepted { background: var(--green); }
+.s-rejected { background: var(--red); }
+
+/* ---------- Comments and version history ---------- */
+
+/* small headings above comments and history */
+.card h4 {
+  margin: 16px 0 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--violet);
+}
+
+/* boxes that scroll, so every card stays medium sized */
+.scroll-box { max-height: 110px; overflow-y: auto; margin-bottom: 8px; }
+
+/* one comment */
+.comment {
+  background: #f3ecff;
+  border-left: 3px solid var(--violet);
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+.comment small { color: #9a93ad; }
+
+/* version history list */
+.history { list-style: none; font-size: 12px; color: var(--muted); }
+.history li { padding: 4px 0 4px 12px; border-left: 3px solid var(--pink); margin-bottom: 4px; }
+
+/* comment box inside a card */
+.card textarea { margin: 4px 0 8px; font-size: 13px; }

@@ -1,0 +1,87 @@
+/* =====================================================
+   PERSON 2 - "How it works" boxes, form fields, login page,
+              and the designer's "Add New Sketch" form
+   ===================================================== */
+
+/* ---------- "How it works" boxes (home page) ---------- */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+.step {
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--violet);
+}
+.step span {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  color: #fff;
+  background: var(--violet);
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.step p { color: var(--muted); font-size: 14px; }
+/* each box gets its own colour */
+.step:nth-child(2) { border-top-color: var(--pink); }
+.step:nth-child(2) span { background: var(--pink); }
+.step:nth-child(3) { border-top-color: var(--amber); }
+.step:nth-child(3) span { background: var(--amber); }
+
+/* ---------- Form fields (used by login, designer form and comment boxes) ---------- */
+input, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border: 1px solid #d9cdeb;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  background: #fff;
+}
+input:focus, textarea:focus { outline: 2px solid var(--violet); border-color: transparent; }
+input[type="color"] { height: 42px; width: 90px; padding: 3px; }
+.error { color: var(--red); margin-top: 10px; font-size: 14px; }
+
+/* ---------- Login page ---------- */
+.login-box {
+  max-width: 380px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 34px;
+  border-radius: 18px;
+  border-top: 6px solid var(--violet);
+  box-shadow: 0 12px 30px rgba(124, 58, 237, 0.15);
+}
+.login-box h2 { font-family: Georgia, serif; margin-bottom: 18px; }
+.demo {
+  margin-top: 20px;
+  font-size: 13px;
+  color: var(--muted);
+  background: #f3ecff;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* ---------- Designer form ---------- */
+.form-box {
+  background: #fff;
+  border-radius: 18px;
+  border-left: 6px solid var(--pink);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.12);
+  padding: 24px;
+  max-width: 640px;
+  margin: 22px 0 0;
+}
+.form-box h3 { font-family: Georgia, serif; font-size: 20px; margin-bottom: 14px; }
+.form-box label { display: block; font-size: 13px; color: var(--muted); margin-bottom: 4px; }
+
+/* design name and fabric side by side */
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
